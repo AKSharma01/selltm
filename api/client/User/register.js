@@ -1,5 +1,6 @@
 "use strict";
 
+import msg91 from "../MSG91";
 import utility from "../Utility";
 import response from "../../Response";
 import transformer from "./transformer";
@@ -10,7 +11,6 @@ let repository = utility.repository;
 let phoneValidation = utility.phoneValidation;
 let emailValidation = utility.emailValidation;
 let checkDuplicateModelEntity = utility.checkDuplicateModelEntity;
-
 
 let register = function(User, body, callback) {
 	User.getDataSource().connector.connect((err, db)=> {
@@ -63,8 +63,14 @@ let createUser = (args)=>{
 	repository.create(args.appModel, userModel, function(dbResponse){
 		let successResponse = Object(response.constant.user_profile_created);
 		successResponse["data"] = transformer.user.response(dbResponse);
+		sendOtpOnMobile(args);
 		args.callback(null, successResponse);
 	}, args.callback);
+}
+
+let sendOtpOnMobile = (args)=>{
+	let sendOTPObject = msg91.helper.urlSendOTP(args.body.phone);
+	msg91.controller.sendOTP(sendOTPObject.url, sendOTPObject.method);
 }
 
 module.exports = register;
