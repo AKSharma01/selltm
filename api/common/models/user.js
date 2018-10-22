@@ -7,7 +7,7 @@ module.exports = function(User) {
 	 * @param {Function(Error, object)} callback
 	 */
 
-	user.register = function(body, callback) {
+	User.register = function(body, callback) {
 		var response;
 		// TODO
 		callback(null, response);
