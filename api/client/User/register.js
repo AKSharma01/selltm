@@ -70,7 +70,12 @@ let createUser = (args)=>{
 
 let sendOtpOnMobile = (args)=>{
 	let sendOTPObject = msg91.helper.urlSendOTP(args.body.phone);
-	msg91.controller.sendOTP(sendOTPObject.url, sendOTPObject.method);
+	msg91.controller.OTPRequest(sendOTPObject.url, sendOTPObject.method, function(err, send){
+		if(err)
+			console.log("err: ", err);
+		else
+			console.log("send: ");
+	});
 }
 
 module.exports = register;

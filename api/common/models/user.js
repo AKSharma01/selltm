@@ -18,4 +18,22 @@ module.exports = function(User) {
 				return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
 		})
 	};
+
+	User.resend = function(body, callback) {
+		user.resend(User, body, function(errResponse, successResponse){
+			if(errResponse)
+				return response.failed(errResponse.status, errResponse.msg, callback);
+			else
+				return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
+		})
+	};
+
+	User.verify = function(body, callback){
+		user.verify(User, body, function(errResponse, successResponse){
+			if(errResponse)
+				return response.failed(errResponse.status, errResponse.msg, callback);
+			else
+				return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
+		})
+	}
 };
