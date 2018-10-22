@@ -1,0 +1,66 @@
+{
+  "name": "user",
+  "plural": "/users",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "email_id": {
+      "type": "string",
+      "required": true
+    },
+    "ph_no": {
+      "type": "string",
+      "required": true
+    },
+    "whatsapp_no": {
+      "type": "string",
+      "required": true
+    },
+    "pin_no": {
+      "type": "string"
+    },
+    "bank_account_no": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "register": {
+      "accepts": [
+        {
+          "arg": "body",
+          "type": "object",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "body"
+          }
+        }
+      ],
+        "returns": {
+        "type": "object",
+        "root": true
+      },
+      "description": "registration for new user by the valid phone no.",
+      "http": [
+        {
+          "path": "/register",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}
