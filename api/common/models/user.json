@@ -25,7 +25,7 @@
     },
     "whatsapp_no": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "pin_no": {
       "type": "string"

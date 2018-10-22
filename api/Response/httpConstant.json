@@ -1,0 +1,26 @@
+{
+	
+	"200": "=========================== > 200 status =========================",
+	"user_profile_created": {
+		"status": 200,
+		"msg": "success"
+	},
+	"400": "=========================== > 400 status =========================",
+	"email_fromat_err": {
+		"status": 400,
+		"msg": "email is not valid"
+	},
+	"phone_fromat_err": {
+		"status": 400,
+		"msg": "phone is not valid"
+	},
+	"user_profile_duplicate": {
+		"status": 409,
+		"msg": "duplicate user found"
+	},
+	"500": "=========================== > 500 status =========================",
+	"connection_err": {
+		"status": 500,
+		"msg": "connection error"
+	}
+}

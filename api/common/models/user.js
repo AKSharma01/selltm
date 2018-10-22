@@ -1,5 +1,8 @@
 'use strict';
 
+import user from "../../client/User";
+import response from "../../Response";
+
 module.exports = function(User) {
 	/**
 	 * registration for new user by the valid phone no.
@@ -8,8 +11,11 @@ module.exports = function(User) {
 	 */
 
 	User.register = function(body, callback) {
-		var response;
-		// TODO
-		callback(null, response);
+		user.register(User, body, function(errResponse, successResponse){
+			if(errResponse)
+				return response.failed(errResponse.status, errResponse.msg, callback);
+			else
+				return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
+		})
 	};
 };

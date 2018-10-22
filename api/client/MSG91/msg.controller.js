@@ -1,7 +1,7 @@
 "use strict";
 import msg from './index'
 import env from "../../env.json";
-import utility from "../utility";
+import utility from "../Utility";
 
 
 const msg91 = env.msg91;
