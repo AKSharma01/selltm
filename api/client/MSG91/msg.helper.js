@@ -23,7 +23,7 @@ function urlSendOTP (mobileNo) {
 
 function urlReSendOTP (mobileNo) {
 	let authkey = msg91.authkey;
-	let url = msg91.baseUrl + msg91.sendOTP.url;
+	let url = msg91.baseUrl + msg91.resendOTP.url;
 	return {
 		url: url+'authkey=' + authkey + '&mobile=' + mobileNo + '&retrytype=text',
 		method: msg91.resendOTP.method
@@ -32,7 +32,7 @@ function urlReSendOTP (mobileNo) {
 
 function urlVerifyOTP (mobileNo, otp) {
 	let authkey = msg91.authkey;
-	let url = msg91.baseUrl + msg91.sendOTP.url;
+	let url = msg91.baseUrl + msg91.verifyOTP.url;
 	return {
 		url: url+'authkey=' + authkey + '&mobile=' + mobileNo + '&otp=' + otp,
 		method: msg91.verifyOTP.method

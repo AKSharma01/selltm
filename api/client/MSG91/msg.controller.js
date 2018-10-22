@@ -4,15 +4,19 @@ import utility from "../Utility";
 
 let requestAPI = utility.requestAPI;
 
-let sendOTP = (url, method)=>{
+let OTPRequest = (url, method, callback)=>{
 	requestAPI(url, method, {}, function(err, success){
-		if(err)
+		if(err){
 			console.log("err: ", err);
-		else
+			callback(err, null);
+		}
+		else{
 			console.log("success: ");
+			callback(null, success);
+		}
 	})
 }
 
 module.exports = {
-	sendOTP: sendOTP
+	OTPRequest: OTPRequest
 }

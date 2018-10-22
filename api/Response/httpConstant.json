@@ -5,6 +5,10 @@
 		"status": 200,
 		"msg": "success"
 	},
+	"phone_otp_verified": {
+		"status": 200,
+		"msg": "otp verified"
+	},
 	"400": "=========================== > 400 status =========================",
 	"email_fromat_err": {
 		"status": 400,
