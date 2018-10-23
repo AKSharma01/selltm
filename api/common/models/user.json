@@ -156,21 +156,24 @@
       ]
     },
     "updateProfile": {
-      "accepts": [{
-        "arg": "request",
-        "type": "object",
-        "http": {
-          "source": "req"
+      "accepts": [
+        {
+          "arg": "request",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "body",
+          "type": "object",
+          "required": true,
+          "description": "",
+          "http": {
+            "source": "body"
+          }
         }
-      }, {
-        "arg": "body",
-        "type": "object",
-        "required": true,
-        "description": "",
-        "http": {
-          "source": "body"
-        }
-      }],
+      ],
       "returns": {
         "type": "object",
         "root": true

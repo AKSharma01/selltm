@@ -8,6 +8,6 @@
     "name": "db",
     "user": "",
     "connector": "mongodb",
-    "useNewUrlParser":"true"
+    "useNewUrlParser": "true"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "name": "activity",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_id": {
+      "type": "object",
+      "required": true
+    },
+    "order_type": {
+      "type": "string",
+      "required": true
+    },
+    "order_details": {
+      "type": "object",
+      "required": true
+    },
+    "order_status": {
+      "type": "object",
+      "required": true
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "updated_at": {
+      "type": "date",
+      "required": true
+    },
+    "deleted_at": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
