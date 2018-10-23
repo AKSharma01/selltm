@@ -13,6 +13,10 @@
 		"status": 200,
 		"msg": "otp verified"
 	},
+	"user_profile_updated": {
+		"status": 200,
+		"msg": "user updated successfully"
+	},
 	"400": "=========================== > 400 status =========================",
 	"email_fromat_err": {
 		"status": 400,
@@ -21,6 +25,10 @@
 	"phone_fromat_err": {
 		"status": 400,
 		"msg": "phone is not valid"
+	},
+	"user_already_updated": {
+		"status": 400,
+		"msg": "user already updated"
 	},
 	"user_not_found": {
 		"status": 404,

@@ -51,4 +51,15 @@ module.exports = function(User) {
 				return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
 		})
 	}
+
+	User.updateProfile = (request, body, callback)=> {
+		user.updateProfile(User, request, body, function(errResponse, successResponse){
+			if(errResponse)
+				return response.failed(errResponse.status, errResponse.msg, callback);
+			else{
+				console.log("successResponse: ", successResponse);
+				return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
+			}
+		})
+	}
 };

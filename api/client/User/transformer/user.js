@@ -18,6 +18,20 @@ let model = (userObject)=>{
 	}
 }
 
+let updateModel = (userObject)=> {
+	let dateTime = new Date();
+	return {
+		"first_name": userObject.firstName,
+		"last_name": userObject.lastName,
+		"email_id": userObject.email,
+		"ph_no": userObject.phone,
+		"whatsapp_no": userObject.whatsAppNo,
+		"pin_no": userObject.pin,
+		"bank_account_no": userObject.accountNo,
+		"updated_at": dateTime
+	}
+}
+
 let response = (userObject)=>{
 	return {
 		id: userObject.id||userObject._id? userObject.id||userObject._id: "",
@@ -35,7 +49,35 @@ let response = (userObject)=>{
 	}
 }
 
+let queryMaker = (args, userModel) => {
+	let orCondition = [];
+	userModel.first_name && userModel.first_name != args.optional.userObject.first_name? orCondition.push({
+		first_name: userModel.first_name
+	}): "";
+	userModel.last_name && userModel.last_name != args.optional.userObject.last_name? orCondition.push({
+		last_name: userModel.last_name
+	}): "";
+	userModel.email_id && userModel.email_id != args.optional.userObject.email_id? orCondition.push({
+		email_id: userModel.email_id
+	}): "";
+	userModel.ph_no && userModel.ph_no != args.optional.userObject.ph_no? orCondition.push({
+		ph_no: userModel.ph_no
+	}): "";
+	userModel.whatsapp_no && userModel.whatsapp_no != args.optional.userObject.whatsapp_no? orCondition.push({
+		whatsapp_no: userModel.whatsapp_no
+	}): "";
+	userModel.pin_no && userModel.pin_no != args.optional.userObject.pin_no? orCondition.push({
+		pin_no: userModel.pin_no
+	}): "";
+	userModel.bank_account_no && userModel.bank_account_no != args.optional.userObject.bank_account_no? orCondition.push({
+		bank_account_no: userModel.bank_account_no
+	}): "";
+	return orCondition;
+}
+
 module.exports = {
 	model: model,
-	response: response
+	response: response,
+	queryMaker: queryMaker,
+	updateModel: updateModel
 }

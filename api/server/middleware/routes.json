@@ -1,0 +1,18 @@
+{
+	"allow": [{
+		"url": "/api/users/login",
+		"method": ["POST"]
+	}, {
+		"url": "/api/users/register",
+		"method": ["POST"]
+	}, {
+		"url": "/api/users/verify",
+		"method": ["POST"]
+	}, {
+		"url": "/api/users/resend",
+		"method": ["POST"]
+	}],
+	"regex": [{
+		"url": ""
+	}]
+}

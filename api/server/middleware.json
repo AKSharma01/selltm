@@ -33,6 +33,14 @@
   "session": {},
   "auth": {},
   "parse": {},
+  "routes:before": {
+    "./middleware/auth": {
+      "paths": [
+        "/api"
+      ],
+      "params": {}
+    }
+  },
   "routes": {
     "loopback#rest": {
       "paths": [

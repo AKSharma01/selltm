@@ -71,7 +71,7 @@
           }
         }
       ],
-        "returns": {
+      "returns": {
         "type": "object",
         "root": true
       },
@@ -95,7 +95,7 @@
           }
         }
       ],
-        "returns": {
+      "returns": {
         "type": "object",
         "root": true
       },
@@ -119,7 +119,7 @@
           }
         }
       ],
-        "returns": {
+      "returns": {
         "type": "object",
         "root": true
       },
@@ -143,7 +143,7 @@
           }
         }
       ],
-        "returns": {
+      "returns": {
         "type": "object",
         "root": true
       },
@@ -152,6 +152,34 @@
         {
           "path": "/login",
           "verb": "post"
+        }
+      ]
+    },
+    "updateProfile": {
+      "accepts": [{
+        "arg": "request",
+        "type": "object",
+        "http": {
+          "source": "req"
+        }
+      }, {
+        "arg": "body",
+        "type": "object",
+        "required": true,
+        "description": "",
+        "http": {
+          "source": "body"
+        }
+      }],
+      "returns": {
+        "type": "object",
+        "root": true
+      },
+      "description": "update user profile api.",
+      "http": [
+        {
+          "path": "/updateProfile",
+          "verb": "put"
         }
       ]
     }
