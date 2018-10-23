@@ -61,7 +61,7 @@ Browse your REST API at http://localhost:7000/explorer
 ```
 
  # Authors
- - Akash Kumar Sharma ([github.com/Aakashsharma9](https://github.com/Aakashsharma9))
+ - Akash Kumar Sharma ([github.com/AKSharma01](https://github.com/Aakashsharma9))
  
 
  
