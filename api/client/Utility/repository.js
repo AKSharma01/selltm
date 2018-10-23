@@ -37,12 +37,12 @@ let insert = function(collection, query, callback, fcallback){
 	})
 }
 
-let update = function(collection, findQuery, updateQuery, callback, fcallback){
+let updateOne = function(collection, findQuery, updateQuery, callback, fcallback){
 	updateQuery = {
 		$set: updateQuery
 	}
 	
-	collection.update(findQuery, updateQuery, function(err, result){
+	collection.updateOne(findQuery, updateQuery, function(err, result){
 		if(err){
 			console.log("Update Query Error");
 			errorResponse.msg = err.message;
@@ -115,10 +115,10 @@ let aggregate = function(collection, query, callback, fcallback){
 
 module.exports = {
 	find: find,
-	findOne: findOne,
 	insert: insert,
 	create: create,
-	update: update,
+	findOne: findOne,
+	updateOne: updateOne,
 	aggregate: aggregate,
 	updateAll: updateAll,
 	findOnlyField: findOnlyField

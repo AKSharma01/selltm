@@ -2,8 +2,12 @@
 	
 	"200": "=========================== > 200 status =========================",
 	"user_profile_created": {
-		"status": 200,
+		"status": 201,
 		"msg": "success"
+	},
+	"user_profile": {
+		"status": 200,
+		"msg": "user profile"
 	},
 	"phone_otp_verified": {
 		"status": 200,
@@ -18,9 +22,21 @@
 		"status": 400,
 		"msg": "phone is not valid"
 	},
+	"user_not_found": {
+		"status": 404,
+		"msg": "user not found"
+	},
 	"user_profile_duplicate": {
 		"status": 409,
 		"msg": "duplicate user found"
+	},
+	"sequence_fault": {
+		"status": 417,
+		"msg": "sequence fault"
+	},
+	"jwt_err": {
+		"status": 420,
+		"msg": null
 	},
 	"500": "=========================== > 500 status =========================",
 	"connection_err": {

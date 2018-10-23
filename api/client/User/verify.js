@@ -3,8 +3,10 @@
 import msg91 from "../MSG91";
 import utility from "../Utility";
 import response from "../../Response";
+import transformer from "./transformer";
 
 
+let jwt = utility.jwt;
 let parameter = utility.parameter;
 let repository = utility.repository;
 let phoneValidation = utility.phoneValidation;
@@ -44,15 +46,34 @@ let verifyOtp = (args)=>{
 			}
 			args.callback(errorResponse, null);
 		}else {
-			let successResponse = Object(response.constant.phone_otp_verified);
-			successResponse["data"] = JSON.parse(verify.data.body);
-			if(successResponse.data.type == "success"){
-				// generate jwt token
-				args.callback(null, successResponse);
-			}else
-				args.callback(null, successResponse);
+			let otpResponse = JSON.parse(verify.data.body);
+			console.log("otpResponse: ", otpResponse);
+			if(otpResponse.type == "success"){
+				console.log("active user");
+				jwtToken(args)
+			}else{
+				// jwtToken(args)
+				args.callback({
+					status: 400,
+					msg: otpResponse.message
+				}, null);
+			}
 		}
 	});
+}
+
+let jwtToken = (args)=>{
+	let userCollection = args.db.collection("user");
+	repository.findOne(userCollection, {
+		ph_no: args.body.phone
+	}, function(userObject){
+		if(!userObject)
+			return args.callback(response.constant.user_not_found, null);
+		let userId = String(userObject._id);
+		jwt.jwtTokenGenerator(userId, function(token){
+			return args.callback(null, token);
+		}, args.callback)
+	}, args.callback);
 }
 
 module.exports = verify;

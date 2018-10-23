@@ -29,7 +29,22 @@ module.exports = function(User) {
 	};
 
 	User.verify = function(body, callback){
-		user.verify(User, body, function(errResponse, successResponse){
+		user.verify(User, body, function(errResponse, jwtToken){
+			if(errResponse)
+				return response.failed(errResponse.status, errResponse.msg, callback);
+			else{
+				user.activateOrReturn(User, body, jwtToken, function(errResponse, successResponse){
+					if(errResponse)
+						return response.failed(errResponse.status, errResponse.msg, callback);
+					else
+						return response.success(successResponse.data, successResponse.status, successResponse.msg, callback);
+				})
+			}
+		})
+	};
+
+	User.login = function(body, callback){
+		user.login(User, body, function(errResponse, successResponse){
 			if(errResponse)
 				return response.failed(errResponse.status, errResponse.msg, callback);
 			else
