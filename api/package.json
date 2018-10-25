@@ -8,7 +8,9 @@
   "scripts": {
     "lint": "eslint .",
     "start": "nodemon . --exec babel-node",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint && nsp check",
+    "build": "babel src --out-dir dist --copy-files",
+    "server": "npm run build && node ./dist/server/server.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
